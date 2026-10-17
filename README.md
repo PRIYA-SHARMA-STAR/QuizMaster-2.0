@@ -2,6 +2,15 @@
 
 A colorful, interactive quiz application built using HTML, CSS, and JavaScript, featuring a cosmic-inspired purple and blue interface.
 
+
+## 🌐 Live Demo
+
+🚀 **Play QuizMaster 2.0 here:**  
+https://incomparable-stardust-ab1a64.netlify.app/
+
+Try the interactive quiz, explore different difficulty levels, track your streaks, and unlock achievements!
+
+
 ## ✨ Features
 
 - **Multiple Categories:** HTML, CSS, and JavaScript.
