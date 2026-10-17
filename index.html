@@ -1,0 +1,371 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080b1a">
+
+    <title>QuizMaster 2.0 | Cosmic Challenge</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="space-background">
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <header class="topbar">
+        <a href="#" class="brand" aria-label="QuizMaster home">
+            <span class="brand-icon">✦</span>
+            <span>Quiz<span class="brand-accent">Master</span></span>
+            <span class="version-tag">2.0</span>
+        </a>
+
+        <div class="topbar-right">
+            <button id="sound-toggle" class="sound-toggle" type="button"
+                    aria-label="Mute sound" aria-pressed="false">
+                🔊 Sound On
+            </button>
+            <span class="status-dot"></span>
+            <span class="status-text">READY TO LEARN</span>
+        </div>
+    </header>
+
+    <main class="app-shell">
+
+        <!-- HOME DASHBOARD -->
+        <section id="home-screen" class="screen home-screen">
+            <div class="hero-section">
+                <div class="eyebrow">
+                    <span>✧</span> YOUR NEXT CHALLENGE AWAITS
+                </div>
+                <h1>
+                    Knowledge is<br>
+                    your <span class="gradient-text">superpower.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Challenge yourself, sharpen your coding skills,
+                    and turn what you know into something extraordinary.
+                </p>
+
+                <div class="hero-actions">
+                    <button id="start-btn" class="primary-btn" type="button">
+                        Start a Challenge <span>↗</span>
+                    </button>
+
+                    <div class="hero-note">
+                        <span class="pulse-dot"></span>
+                        YOUR JOURNEY STARTS HERE
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <article class="stat-card">
+                    <div class="stat-icon purple-icon">✦</div>
+                    <p class="stat-label">TOTAL QUESTIONS</p>
+                    <h2 id="total-questions-stat">30<span>+</span></h2>
+                    <p class="stat-caption">Across coding topics</p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon blue-icon">⌘</div>
+                    <p class="stat-label">CATEGORIES</p>
+                    <h2>03</h2>
+                    <p class="stat-caption">Explore your skills</p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon pink-icon">⚡</div>
+                    <p class="stat-label">YOUR BEST SCORE</p>
+                    <h2 id="best-score-stat">0<span>%</span></h2>
+                    <p class="stat-caption">Your personal best</p>
+                </article>
+            </div>
+
+            <section class="progress-dashboard" aria-labelledby="progress-heading">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-kicker">YOUR LEARNING JOURNEY</p>
+                        <h2 id="progress-heading">Progress & achievements</h2>
+                    </div>
+                    <span class="section-decoration">KEEP GOING ✦</span>
+                </div>
+                <div class="progress-summary-grid">
+                    <article class="mini-stat-card">
+                        <span class="mini-stat-icon">📚</span>
+                        <p class="stat-label">QUIZZES COMPLETED</p>
+                        <strong id="quizzes-completed-stat">0</strong>
+                    </article>
+                    <article class="mini-stat-card">
+                        <span class="mini-stat-icon">🎯</span>
+                        <p class="stat-label">AVERAGE ACCURACY</p>
+                        <strong id="average-score-stat">0%</strong>
+                    </article>
+                    <article class="mini-stat-card">
+                        <span class="mini-stat-icon">🔥</span>
+                        <p class="stat-label">BEST ANSWER STREAK</p>
+                        <strong id="best-streak-stat">0</strong>
+                    </article>
+                </div>
+                <div class="achievement-panel">
+                    <div class="achievement-panel-heading">
+                        <div>
+                            <p class="section-kicker">MILESTONES</p>
+                            <h3>Your achievements</h3>
+                        </div>
+                        <span id="achievement-count" class="achievement-count">0 / 5 unlocked</span>
+                    </div>
+                    <div id="achievement-list" class="achievement-grid" aria-live="polite"></div>
+                </div>
+                <div class="recent-attempts-panel">
+                    <div class="achievement-panel-heading">
+                        <div>
+                            <p class="section-kicker">RECENT ACTIVITY</p>
+                            <h3>Recent quiz attempts</h3>
+                        </div>
+                    </div>
+                    <div id="recent-attempts" class="recent-attempts-list">
+                        <p class="empty-state">Complete a quiz to see your progress here.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-heading">
+                <div>
+                    <p class="section-kicker">PICK YOUR PATH</p>
+                    <h2>Choose your challenge</h2>
+                </div>
+                <span class="section-decoration">01 / 03</span>
+            </div>
+
+            <div class="category-grid">
+                <button class="category-card" type="button" data-category="html">
+                    <span class="category-symbol html-symbol">5</span>
+                    <span class="category-info">
+                        <strong>HTML</strong>
+                        <small>Structure the web</small>
+                    </span>
+                    <span class="category-arrow">↗</span>
+                </button>
+
+                <button class="category-card" type="button" data-category="css">
+                    <span class="category-symbol css-symbol">✿</span>
+                    <span class="category-info">
+                        <strong>CSS</strong>
+                        <small>Design with style</small>
+                    </span>
+                    <span class="category-arrow">↗</span>
+                </button>
+
+                <button class="category-card" type="button" data-category="javascript">
+                    <span class="category-symbol js-symbol">JS</span>
+                    <span class="category-info">
+                        <strong>JavaScript</strong>
+                        <small>Bring ideas to life</small>
+                    </span>
+                    <span class="category-arrow">↗</span>
+                </button>
+            </div>
+
+            <p class="footer-note">
+                BUILT FOR CURIOUS MINDS <span>✦</span> POWERED BY PRIYA
+            </p>
+        </section>
+
+        <!-- SETUP SCREEN -->
+        <section id="setup-screen" class="screen setup-screen hidden">
+            <button id="back-home-btn" class="text-btn" type="button">
+                ← Back to dashboard
+            </button>
+
+            <div class="setup-panel">
+                <div class="eyebrow">✧ CONFIGURE YOUR MISSION</div>
+                <h1>Make it <span class="gradient-text">your challenge.</span></h1>
+                <p class="section-description">
+                    Select your topic and difficulty before you begin.
+                </p>
+
+                <div class="setup-group">
+                    <label class="field-label">SELECT CATEGORY</label>
+
+                    <div class="choice-grid" id="category-options">
+                        <button class="choice-btn selected" type="button" data-category="html">
+                            HTML
+                        </button>
+                        <button class="choice-btn" type="button" data-category="css">
+                            CSS
+                        </button>
+                        <button class="choice-btn" type="button" data-category="javascript">
+                            JavaScript
+                        </button>
+                    </div>
+                </div>
+
+                <div class="setup-group">
+                    <label class="field-label">CHOOSE DIFFICULTY</label>
+
+                    <div class="choice-grid difficulty-options">
+                        <button class="choice-btn selected" type="button" data-difficulty="easy">
+                            <span class="difficulty-dot easy-dot"></span> Easy
+                        </button>
+                        <button class="choice-btn" type="button" data-difficulty="medium">
+                            <span class="difficulty-dot medium-dot"></span> Medium
+                        </button>
+                        <button class="choice-btn" type="button" data-difficulty="hard">
+                            <span class="difficulty-dot hard-dot"></span> Hard
+                        </button>
+                    </div>
+                </div>
+
+                <button id="begin-quiz-btn" class="primary-btn full-width" type="button">
+                    Launch Quiz <span>↗</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- QUIZ SCREEN -->
+        <section id="quiz-screen" class="screen quiz-screen hidden">
+            <div class="quiz-toolbar">
+                <button id="quit-quiz-btn" class="text-btn" type="button">
+                    ← Exit quiz
+                </button>
+
+                <div class="quiz-meta">
+                    <span id="quiz-category-label">HTML</span>
+                    <span class="meta-divider">/</span>
+                    <span id="quiz-difficulty-label">EASY</span>
+                    <span id="current-streak-display" class="streak-chip" aria-live="polite">🔥 0 streak</span>
+                </div>
+
+                <div class="timer-pill">
+                    <span>◷</span>
+                    <span id="timer">20</span>
+                    <span>sec</span>
+                </div>
+            </div>
+
+            <div class="quiz-progress-area">
+                <div class="progress-labels">
+                    <span id="question-counter">QUESTION 01 / 10</span>
+                    <span id="progress-percent">10%</span>
+                </div>
+
+                <div class="progress-track">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+            </div>
+
+            <article class="quiz-panel">
+                <div class="question-number" id="question-number">QUESTION 01</div>
+
+                <h1 id="question">Your question will appear here.</h1>
+
+                <p id="question-hint" class="question-hint">
+                    Choose the best answer to continue.
+                </p>
+
+                <div id="answer-buttons" class="answer-grid"></div>
+
+                <div id="feedback" class="feedback hidden" aria-live="polite"></div>
+
+                <div class="quiz-bottom">
+                    <span class="score-display">
+                        SCORE <strong id="live-score">0</strong>
+                    </span>
+
+                    <button id="next-btn" class="primary-btn" type="button" disabled>
+                        Next Question <span>→</span>
+                    </button>
+                </div>
+            </article>
+        </section>
+
+        <!-- RESULTS SCREEN -->
+        <section id="results-screen" class="screen results-screen hidden">
+            <div class="results-heading">
+                <div class="eyebrow">✧ MISSION COMPLETE</div>
+                <h1 id="result-title">Challenge completed!</h1>
+                <p id="result-message">Every challenge is a chance to grow.</p>
+            </div>
+
+            <article class="result-score-card">
+                <p class="stat-label">YOUR FINAL SCORE</p>
+                <div class="score-ring">
+                    <div class="score-ring-inner">
+                        <strong id="final-score">0%</strong>
+                        <span>ACCURACY</span>
+                    </div>
+                </div>
+
+                <p id="result-summary">Keep learning. Keep growing.</p>
+            </article>
+
+            <div class="results-stats">
+                <article class="result-stat">
+                    <span class="result-stat-icon correct-color">✓</span>
+                    <span class="result-stat-label">CORRECT</span>
+                    <strong id="correct-count">0</strong>
+                </article>
+
+                <article class="result-stat">
+                    <span class="result-stat-icon wrong-color">✕</span>
+                    <span class="result-stat-label">INCORRECT</span>
+                    <strong id="incorrect-count">0</strong>
+                </article>
+
+                <article class="result-stat">
+                    <span class="result-stat-icon time-color">◷</span>
+                    <span class="result-stat-label">TIME LEFT</span>
+                    <strong id="time-left-result">0s</strong>
+                </article>
+            </div>
+
+            <section class="result-achievements" aria-labelledby="result-achievements-heading">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-kicker">NEW MILESTONES</p>
+                        <h2 id="result-achievements-heading">Achievements unlocked</h2>
+                    </div>
+                </div>
+                <div id="result-achievement-list" class="achievement-grid">
+                    <p class="empty-state">Keep going to unlock your first badge.</p>
+                </div>
+            </section>
+
+            <div class="review-section">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-kicker">LEARN FROM EVERY ANSWER</p>
+                        <h2>Answer review</h2>
+                    </div>
+                </div>
+
+                <div id="answer-review" class="answer-review-list"></div>
+            </div>
+
+            <div class="results-actions">
+                <button id="retry-btn" class="primary-btn" type="button">
+                    Try Again <span>↻</span>
+                </button>
+
+                <button id="home-btn" class="secondary-btn" type="button">
+                    Back to Dashboard
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="app-footer">
+        <span>QUIZMASTER 2.0</span>
+        <span>DESIGNED TO CHALLENGE <span class="footer-star">✦</span></span>
+    </footer>
+</body>
+</html>
